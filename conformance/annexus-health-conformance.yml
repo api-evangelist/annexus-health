@@ -1,0 +1,126 @@
+generated: '2026-08-06'
+method: searched
+source: >-
+  https://login.live.annexushealth.com/.well-known/openid-configuration,
+  https://trust.annexushealth.com/, https://www.annexushealth.com/privacy-security/
+scope: >-
+  Assertions are graded against what Annexus Health publishes anonymously. The AssistPoint
+  business API and the AP Connect partner integration surface have no public reference, so
+  every REST-level assertion below is recorded as unknown rather than guessed.
+standards:
+- id: oauth2
+  name: OAuth 2.0 (RFC 6749)
+  conforms: true
+  evidence: >-
+    Authorization server metadata served at
+    https://login.live.annexushealth.com/.well-known/oauth-authorization-server (200) with
+    authorization, token, and revocation endpoints and seven advertised grant types.
+- id: oidc
+  name: OpenID Connect Core 1.0 + Discovery 1.0
+  conforms: true
+  evidence: >-
+    https://login.live.annexushealth.com/.well-known/openid-configuration returns 200 with
+    issuer, authorization_endpoint, token_endpoint, userinfo_endpoint, jwks_uri,
+    response_types_supported, subject_types_supported, and id_token_signing_alg_values_supported.
+- id: rfc8414
+  name: OAuth 2.0 Authorization Server Metadata
+  conforms: true
+  evidence: /.well-known/oauth-authorization-server returns 200 application/json.
+- id: rfc7517
+  name: JSON Web Key Set
+  conforms: true
+  evidence: https://login.live.annexushealth.com/.well-known/jwks.json returns 200 with a keys array.
+- id: rfc7636
+  name: PKCE
+  conforms: partial
+  evidence: >-
+    code_challenge_methods_supported advertises both S256 and plain; `plain` provides no
+    protection against code interception and remains enabled for legacy clients.
+- id: rfc9449
+  name: OAuth 2.0 DPoP
+  conforms: true
+  evidence: dpop_signing_alg_values_supported = [ES256] in the discovery document.
+- id: rfc7591
+  name: OAuth 2.0 Dynamic Client Registration
+  conforms: true
+  evidence: registration_endpoint = https://login.live.annexushealth.com/oidc/register
+- id: rfc7009
+  name: OAuth 2.0 Token Revocation
+  conforms: true
+  evidence: revocation_endpoint = https://login.live.annexushealth.com/oauth/revoke
+- id: rfc8628
+  name: OAuth 2.0 Device Authorization Grant
+  conforms: true
+  evidence: device_authorization_endpoint published and urn:ietf:params:oauth:grant-type:device_code advertised.
+- id: rfc8693
+  name: OAuth 2.0 Token Exchange
+  conforms: true
+  evidence: urn:ietf:params:oauth:grant-type:token-exchange advertised in grant_types_supported.
+- id: fapi
+  name: FAPI 1.0 / 2.0
+  conforms: false
+  evidence: >-
+    Not claimed and not met — the implicit and ROPC (password) grants and PKCE `plain` remain
+    enabled, and request object support is disabled (request_parameter_supported = false).
+- id: hitrust
+  name: HITRUST CSF Risk-based 2-year (r2) Certification
+  conforms: true
+  evidence: >-
+    Named on https://www.annexushealth.com/privacy-security/ (200) and in the Compliance
+    section of the SafeBase trust center at https://trust.annexushealth.com/ (200). The
+    certificate itself is available on request, not published.
+- id: hipaa
+  name: HIPAA (business associate)
+  conforms: claimed
+  evidence: >-
+    Annexus Health handles PHI on behalf of provider organizations and publishes a
+    privacy & security page and a Data Protection & Privacy Policy in its trust center. No
+    standalone HIPAA attestation is published.
+- id: soc2
+  name: SOC 2
+  conforms: false
+  evidence: Not listed in the trust center Compliance or Reports sections as of 2026-08-06.
+- id: iso27001
+  name: ISO/IEC 27001
+  conforms: false
+  evidence: Not listed in the trust center as of 2026-08-06.
+- id: rfc9116
+  name: security.txt
+  conforms: false
+  evidence: >-
+    /.well-known/security.txt returns 404 on www.annexushealth.com and on
+    trust.annexushealth.com.
+- id: rfc8594
+  name: Sunset header / deprecation policy
+  conforms: unknown
+  evidence: No public API reference or deprecation policy is published.
+- id: rfc9457
+  name: Problem Details for HTTP APIs
+  conforms: unknown
+  evidence: No public API reference or error catalog is published.
+- id: fhir
+  name: HL7 FHIR
+  conforms: unknown
+  evidence: >-
+    AssistPoint integrates with practice management, EHR, and pharmacy management systems, but
+    Annexus Health names no interoperability standard on any public page — FHIR, HL7 v2, X12,
+    and NCPDP are all absent from the AP Connect and AssistPoint marketing pages.
+- id: openapi
+  name: OpenAPI
+  conforms: false
+  evidence: >-
+    No OpenAPI or Swagger document found on www.annexushealth.com, trust.annexushealth.com, or
+    login.live.annexushealth.com; no api./developer./docs. subdomain resolves.
+- id: a2a
+  name: A2A Agent Card
+  conforms: false
+  evidence: /.well-known/agent-card.json and /.well-known/agent.json both 404 on every host probed.
+x-evidence:
+  fetched: '2026-08-06'
+  hosts_probed:
+  - https://www.annexushealth.com
+  - https://login.live.annexushealth.com
+  - https://login.dev.annexushealth.com
+  - https://login.testenv.annexushealth.com
+  - https://trust.annexushealth.com
+  - https://share.annexushealth.com

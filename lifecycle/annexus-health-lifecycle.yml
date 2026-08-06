@@ -1,0 +1,83 @@
+generated: '2026-08-06'
+method: searched
+source: >-
+  https://www.annexushealth.com/ (sitemap walk), https://trust.annexushealth.com/,
+  certificate-transparency host enumeration for annexushealth.com
+summary: >-
+  Annexus Health publishes no API versioning policy, no deprecation policy, no changelog or
+  release notes, no SLA, and no public status page. The only lifecycle signal that is publicly
+  observable is the environment tiering of the AssistPoint identity host, which resolves three
+  named tenants — dev, testenv, and live — each serving its own OpenID Connect discovery
+  document.
+versioning:
+  policy_published: false
+  scheme: unknown
+  evidence: No public API reference exists to carry a version scheme.
+deprecation:
+  policy_published: false
+  sunset_header: unknown
+  deprecation_header: unknown
+  rfc8594: unknown
+  evidence: >-
+    No deprecation or sunset policy page found in the site sitemap (20 pages, page-sitemap.xml).
+changelog:
+  published: false
+  probed:
+  - url: https://www.annexushealth.com/changelog/
+    status: 404
+  - url: https://www.annexushealth.com/release-notes/
+    status: 404
+  note: >-
+    The company publishes an /insights/ and a /news/ section with dated posts, but neither is a
+    product or API changelog.
+status_page:
+  published: false
+  probed:
+  - url: https://www.annexushealth.com/status/
+    status: 404
+  - url: https://status.annexushealth.com/
+    status: 0
+    note: does not resolve (NXDOMAIN)
+  - url: https://annexushealth.statuspage.io/
+    status: 200
+    verdict: false positive
+    note: >-
+      SOFT-404. The 200 is Atlassian's own Statuspage marketing page — the request redirects to
+      https://www.atlassian.com/software/statuspage and returns a byte-identical 127,721-byte
+      body to a control probe of a deliberately bogus subdomain
+      (zzqqxxnotarealcompany99.statuspage.io). Annexus Health has no Statuspage tenant.
+sla:
+  published: false
+  note: >-
+    A Business Continuity Plan and Disaster Recovery Plan are listed in the SafeBase trust
+    center but are gated behind an NDA request; no uptime commitment is published.
+environments:
+- name: live
+  host: https://login.live.annexushealth.com
+  issuer: https://login.live.annexushealth.com/
+  discovery_status: 200
+  role: production identity tier for AssistPoint
+- name: testenv
+  host: https://login.testenv.annexushealth.com
+  issuer: https://login.testenv.annexushealth.com/
+  discovery_status: 200
+  role: non-production tenant
+  public_sandbox: false
+  note: >-
+    Reachable and serving discovery metadata, but Annexus Health documents no self-serve
+    sandbox, test credentials, or fixtures — this is an internal/partner environment, not a
+    published developer sandbox.
+- name: dev
+  host: https://login.dev.annexushealth.com
+  issuer: https://login.dev.annexushealth.com/
+  discovery_status: 200
+  role: non-production tenant
+  public_sandbox: false
+support:
+  url: https://www.annexushealth.com/customer-support/
+  faq: https://www.annexushealth.com/provider-faqs/
+x-evidence:
+  fetched: '2026-08-06'
+  method: >-
+    HTTP probes with a 10-second crawl delay honoring
+    https://www.annexushealth.com/robots.txt (Crawl-delay: 10)

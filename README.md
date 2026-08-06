@@ -42,5 +42,22 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Annexus Health is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://www.nasdaqprivatemarket.com/
+Annexus Health is a privately held healthcare technology company in Cranberry Township, Pennsylvania
+that builds software to reduce the administrative burden of patient financial navigation. Its
+flagship platform, **AssistPoint**, is an enterprise workflow application used by financial
+counselors and patient advocates to identify, enroll in, and manage copay assistance, charitable
+foundation grants, and manufacturer patient support programs. **AP Connect** creates a two-way secure
+information exchange between life science and foundation patient support programs and AssistPoint.
+**Adparo** is its patient financial navigation service offering.
+
+Annexus Health runs no public developer program. AP Connect is delivered through direct partnership
+and publishes no API reference or machine-readable specification. The publicly reachable
+machine-readable surface captured in this profile is the AssistPoint identity tier — an OpenID
+Connect authorization server on the company's own custom domain — plus a public SafeBase trust
+center naming its HITRUST r2 certification.
+
+- Website: https://www.annexushealth.com/
+- AssistPoint: https://www.annexushealth.com/assistpoint/
+- AP Connect: https://www.annexushealth.com/ap-connect/
+- Trust center: https://trust.annexushealth.com/
+- OIDC discovery: https://login.live.annexushealth.com/.well-known/openid-configuration

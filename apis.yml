@@ -1,18 +1,71 @@
 aid: annexus-health
 name: Annexus Health
-description: 'Annexus Health is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: >-
+  Annexus Health is a privately held healthcare technology company headquartered in Cranberry
+  Township, Pennsylvania that builds software to reduce the administrative burden of patient
+  financial navigation across the patient access journey. Its flagship platform, AssistPoint,
+  is an enterprise workflow application used by financial counselors and patient advocates at
+  provider organizations to proactively identify, enroll in, and manage copay assistance,
+  charitable foundation grants, and manufacturer patient support programs. A companion
+  integration layer, AP Connect, creates a two-way secure information exchange between life
+  science and foundation patient support programs and AssistPoint, digitally integrating
+  enrollment, e-signature, and real-time award balance updates. Annexus Health also publishes
+  Adparo, a patient financial navigation service offering. The company reports AssistPoint is
+  licensed by 165+ healthcare organizations across 4,200+ sites of care and has processed more
+  than $6 billion in patient financial assistance awards since 2018. Its integration and
+  developer surface is partner-only: AP Connect is delivered through direct life science and
+  foundation partnerships rather than a public developer program, and no public API reference
+  or machine-readable specification is published. The publicly reachable machine-readable
+  surface is the AssistPoint identity tier — an OpenID Connect authorization server on the
+  company's own custom domain — plus a SafeBase-hosted trust center carrying its HITRUST r2
+  certification.
+image: https://www.annexushealth.com/wp-content/uploads/2019/06/AnnexusHealth_logo_NAV-1.png
 url: https://raw.githubusercontent.com/api-evangelist/annexus-health/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
-x-tier: stub
-x-tier-reason: harvest
 specificationVersion: '0.20'
 created: '2026-08-06'
 modified: '2026-08-06'
 tags:
 - Company
-apis: []
+- Healthcare
+- Health Technology
+- Patient Access
+- Financial Assistance
+- Oncology
+- Revenue Cycle
+- Copay Assistance
+- Identity
+- OpenID Connect
+- HITRUST
+apis:
+- aid: annexus-health:assistpoint-identity
+  name: AssistPoint Identity (OpenID Connect)
+  description: >-
+    The production OpenID Connect / OAuth 2.0 authorization server for the AssistPoint platform,
+    served from Annexus Health's own custom domain. Its discovery document is published
+    anonymously at /.well-known/openid-configuration and advertises the authorization, token,
+    userinfo, device-code, JWKS, dynamic client registration, revocation, and backchannel
+    authentication endpoints, fourteen OIDC scopes, PKCE (S256), DPoP, private_key_jwt client
+    authentication, and the client_credentials, authorization_code, refresh_token, device_code,
+    token-exchange, and jwt-bearer grants. This is the identity tier only — the AssistPoint
+    business API behind it is partner-gated and its reference is not public.
+  humanURL: https://www.annexushealth.com/assistpoint/
+  baseURL: https://login.live.annexushealth.com
+  tags:
+  - Identity
+  - Authentication
+  - OpenID Connect
+  - OAuth 2.0
+  properties:
+  - type: OpenIDConnectDiscovery
+    url: https://login.live.annexushealth.com/.well-known/openid-configuration
+  - type: WellKnown
+    url: well-known/annexus-health-well-known.yml
+  - type: Authentication
+    url: authentication/annexus-health-authentication.yml
+  - type: OAuthScopes
+    url: scopes/annexus-health-scopes.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -20,4 +73,65 @@ maintainers:
   email: info@apis.io
 common:
 - type: Website
-  url: https://www.nasdaqprivatemarket.com/
+  url: https://www.annexushealth.com/
+- type: About
+  url: https://www.annexushealth.com/about/
+- type: Documentation
+  url: https://www.annexushealth.com/assistpoint/
+- type: Support
+  url: https://www.annexushealth.com/customer-support/
+- type: HelpCenter
+  url: https://www.annexushealth.com/provider-faqs/
+- type: Blog
+  url: https://www.annexushealth.com/insights/
+- type: BlogRSS
+  url: https://www.annexushealth.com/feed/
+- type: PrivacyPolicy
+  url: https://www.annexushealth.com/privacy-policy/
+- type: CookiePolicy
+  url: https://www.annexushealth.com/cookie-policy/
+- type: SignUp
+  url: https://www.annexushealth.com/contact/
+- type: Login
+  url: https://login.live.annexushealth.com/
+- type: TrustCenter
+  url: https://trust.annexushealth.com/
+- type: Compliance
+  url: security/annexus-health-trust-center.yml
+- type: DomainSecurity
+  url: security/annexus-health-domain-security.yml
+- type: Conformance
+  url: conformance/annexus-health-conformance.yml
+- type: Lifecycle
+  url: lifecycle/annexus-health-lifecycle.yml
+- type: Packages
+  url: packages/annexus-health-packages.yml
+- type: LLMsTxt
+  url: llms/annexus-health-llms.txt
+- type: Twitter
+  url: https://twitter.com/annexushealth
+- type: LinkedIn
+  url: https://www.linkedin.com/company/annexushealth/
+- type: YouTube
+  url: https://www.youtube.com/channel/UCLKjak9CEP1Z9DjIjV2op9g
+x-enrichment:
+  date: '2026-08-06'
+  status: enriched
+  artifacts_added: 12
+  pass: local-v1
+x-coverage:
+  state: covered
+  reason: covered
+  detail: >-
+    The AssistPoint product API (AP Connect) is partner-only and has no public reference, but
+    contract discovery on the identity tier hit: login.live.annexushealth.com serves a full
+    anonymous OpenID Connect discovery document plus JWKS, and trust.annexushealth.com is a
+    public SafeBase trust center naming HITRUST r2.
+  evidence:
+  - url: https://login.live.annexushealth.com/.well-known/openid-configuration
+    status: 200
+  - url: https://trust.annexushealth.com/
+    status: 200
+  - url: https://www.annexushealth.com/developers
+    status: 404
+  checked: '2026-08-06'

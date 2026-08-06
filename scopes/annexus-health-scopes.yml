@@ -1,0 +1,68 @@
+generated: '2026-08-06'
+method: searched
+source: https://login.live.annexushealth.com/.well-known/openid-configuration
+note: >-
+  These are the scopes the AssistPoint production authorization server advertises in its
+  anonymous OpenID Connect discovery document. They are the standard OIDC profile set — no
+  AssistPoint or AP Connect resource-level scopes are published. Any partner-facing API scopes
+  are issued privately as part of an AP Connect integration agreement and were not fabricated
+  here.
+issuer: https://login.live.annexushealth.com/
+scheme: assistpoint_oidc
+scopes:
+- name: openid
+  description: Required to request an ID token and initiate an OpenID Connect flow.
+  standard: openid-connect-core-1.0
+- name: profile
+  description: Default profile claims — name, family_name, given_name, nickname, picture, updated_at.
+  standard: openid-connect-core-1.0
+- name: offline_access
+  description: Issues a refresh token so the client can obtain new access tokens without user interaction.
+  standard: openid-connect-core-1.0
+- name: name
+  description: The end-user's full display name.
+- name: given_name
+  description: The end-user's given (first) name.
+- name: family_name
+  description: The end-user's family (last) name.
+- name: nickname
+  description: The end-user's casual or short name.
+- name: email
+  description: The end-user's preferred email address.
+  standard: openid-connect-core-1.0
+- name: email_verified
+  description: Boolean indicating whether the end-user's email address has been verified.
+- name: picture
+  description: URL of the end-user's profile picture.
+- name: created_at
+  description: Timestamp the end-user's identity record was created.
+- name: identities
+  description: The linked identity provider records associated with the end-user.
+- name: phone
+  description: The end-user's phone number and phone_number_verified claim.
+  standard: openid-connect-core-1.0
+- name: address
+  description: The end-user's postal address claim.
+  standard: openid-connect-core-1.0
+claims_supported:
+- aud
+- auth_time
+- created_at
+- email
+- email_verified
+- exp
+- family_name
+- given_name
+- iat
+- identities
+- iss
+- name
+- nickname
+- phone_number
+- picture
+- sub
+x-evidence:
+  fetched: '2026-08-06'
+  url: https://login.live.annexushealth.com/.well-known/openid-configuration
+  http_status: 200
+  field: scopes_supported

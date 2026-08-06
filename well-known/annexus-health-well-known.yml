@@ -1,0 +1,68 @@
+generated: '2026-08-06'
+method: searched
+source: https://login.live.annexushealth.com/.well-known/openid-configuration
+note: >-
+  Annexus Health publishes no /.well-known/ surface on its marketing host
+  (www.annexushealth.com) — every probed path returns 404. The real discovery surface sits on
+  the AssistPoint identity host, login.live.annexushealth.com, which serves a complete OpenID
+  Connect discovery document anonymously. Two non-production identity hosts
+  (login.dev.annexushealth.com, login.testenv.annexushealth.com) also answer with their own
+  discovery documents; they are recorded as probed but not saved, since they describe
+  non-production tenants.
+hosts:
+- host: https://login.live.annexushealth.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: annexus-health-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: annexus-health-oauth-authorization-server.json
+    note: byte-identical to the openid-configuration document
+  - path: /.well-known/jwks.json
+    status: 200
+    content_type: application/json
+    file: annexus-health-jwks.json
+  - path: /.well-known/openid-configuration/jwks
+    status: 404
+- host: https://www.annexushealth.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+  - path: /llms.txt
+    status: 404
+- host: https://trust.annexushealth.com
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+- host: https://login.dev.annexushealth.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: null
+    note: non-production tenant; issuer https://login.dev.annexushealth.com/ — not saved
+- host: https://login.testenv.annexushealth.com
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: null
+    note: non-production tenant; issuer https://login.testenv.annexushealth.com/ — not saved
+x-evidence:
+  fetched: '2026-08-06'
+  probe: curl -sIL, HTTP status recorded verbatim

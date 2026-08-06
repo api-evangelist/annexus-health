@@ -1,0 +1,72 @@
+generated: '2026-08-06'
+method: searched
+source: >-
+  Registry search across npm, PyPI, NuGet, and the Annexus Health public site (2026-08-06)
+summary: >-
+  Annexus Health publishes no first-party SDK. One AssistPoint-branded package exists on npm,
+  published from an individual maintainer account rather than an organization, and its source
+  repository is not public. It is recorded here as a real find but is NOT marked official —
+  there is no evidence Annexus Health supports it as a client library, and it is a form-control
+  bundle for the AP Connect digital enrollment form, not an API client.
+packages:
+- language: javascript
+  registry: npm
+  name: assistpoint-de-controls
+  version: 1.0.3
+  url: https://www.npmjs.com/package/assistpoint-de-controls
+  install: npm install assistpoint-de-controls
+  description: AssistPoint Digital Enrollment form controls
+  keywords: [AssistPoint, Digital, Enrollment, form, controls]
+  license: ISC
+  maintainer: wernerjc
+  author: Joshua Werner
+  repository: https://github.com/josh-annexus/assistpoint-de-controls
+  repository_status: 404 — repository is private or removed; the npm tarball is the only public copy
+  first_published: '2023-12-20'
+  last_published: '2023-12-20'
+  official: false
+  official_reason: >-
+    Published under an individual npm account (wernerjc) and an individual GitHub namespace
+    (josh-annexus, 0 public repositories), not an Annexus Health organization. The AssistPoint
+    branding and the `josh-annexus` handle make first-party authorship likely, but Annexus
+    Health does not link to or document this package anywhere on its public site, so it does
+    not meet the bar for `official: true`.
+  kind: ui-components
+registries_searched:
+- registry: npm
+  query: annexus
+  hits: 2
+  relevant: 0
+  note: '@annexus/regex_iterator and @annexus/promise are unrelated generic utilities'
+- registry: npm
+  query: assistpoint
+  hits: 1
+  relevant: 1
+- registry: pypi
+  queries: [annexus, annexus-health, assistpoint]
+  hits: 0
+  note: all three return 404 from the PyPI JSON API
+- registry: nuget
+  query: annexus
+  hits: 0
+- registry: github
+  query: org annexushealth / annexus-health
+  hits: 0
+  note: both organization names return 404; Annexus Health has no public GitHub organization
+not_found:
+- Maven Central
+- RubyGems
+- Packagist
+- crates.io
+- pkg.go.dev
+x-evidence:
+  fetched: '2026-08-06'
+  urls:
+  - url: https://registry.npmjs.org/assistpoint-de-controls
+    status: 200
+  - url: https://api.github.com/repos/josh-annexus/assistpoint-de-controls
+    status: 404
+  - url: https://api.github.com/orgs/annexushealth
+    status: 404
+  - url: https://pypi.org/pypi/assistpoint/json
+    status: 404

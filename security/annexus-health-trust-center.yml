@@ -1,0 +1,66 @@
+generated: '2026-08-06'
+method: searched
+source: https://trust.annexushealth.com/
+docs: https://www.annexushealth.com/privacy-security/
+trust_center:
+  url: https://trust.annexushealth.com/
+  platform: SafeBase by Drata
+  public: true
+  http_status: 200
+certifications:
+- name: HITRUST Risk-based, 2-year (r2) Certification
+  short: HITRUST r2
+  status: certified
+  scope: >-
+    Stated by Annexus Health as validating its commitment to cybersecurity and to the key
+    regulations that govern protection of sensitive data.
+  report_available: on-request
+  request_via: https://www.annexushealth.com/privacy-security/
+  evidence:
+  - url: https://trust.annexushealth.com/
+    status: 200
+    where: Compliance section
+  - url: https://www.annexushealth.com/privacy-security/
+    status: 200
+    where: HITRUST r2 certification badge and statement
+regulatory_context:
+- regime: HIPAA
+  note: >-
+    Annexus Health handles protected health information as a business associate of provider
+    organizations. HIPAA obligations are implied by the product and named in the privacy
+    material, but no separate HIPAA attestation document is published.
+documents_listed:
+  reports:
+  - Public Documentation
+  compliance:
+  - HITRUST
+  data_security:
+  - Data Backups
+  endpoint_security:
+  - Mobile Device Management
+  corporate_security:
+  - Employee Training
+  policies:
+  - Acceptable Use Policy
+  - Access Control Policy
+  - Asset Management Policy
+  - Audit Logging & Monitoring Policy
+  - Business Continuity/Disaster Recovery (BC/DR) Policy
+  - Configuration Management Policy
+  - Data Protection & Privacy Policy
+  business_continuity:
+  - Business Continuity Plan (BCP)
+  - Disaster Recovery Plan (DRP)
+not_published:
+- SOC 2 Type I or Type II report
+- ISO/IEC 27001 certificate
+- PCI DSS attestation
+- FedRAMP authorization
+- subprocessor list
+- public status page
+- vulnerability disclosure policy or bug bounty
+x-evidence:
+  fetched: '2026-08-06'
+  url: https://trust.annexushealth.com/
+  http_status: 200
+  content_type: text/html; charset=utf-8
