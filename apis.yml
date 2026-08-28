@@ -19,6 +19,17 @@ description: >-
   surface is the AssistPoint identity tier — an OpenID Connect authorization server on the
   company's own custom domain — plus a SafeBase-hosted trust center carrying its HITRUST r2
   certification.
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://www.annexushealth.com/wp-content/uploads/2019/06/AnnexusHealth_logo_NAV-1.png
 url: https://raw.githubusercontent.com/api-evangelist/annexus-health/refs/heads/main/apis.yml
 x-type: company
