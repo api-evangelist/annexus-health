@@ -32,6 +32,9 @@ deliveryModel:
   method: derived
 image: https://www.annexushealth.com/wp-content/uploads/2019/06/AnnexusHealth_logo_NAV-1.png
 url: https://raw.githubusercontent.com/api-evangelist/annexus-health/refs/heads/main/apis.yml
+x-api-posture: partner-gated
+x-api-posture-basis: observed
+x-api-posture-note: "Its integration and developer surface is partner-only: AP Connect is delivered through direct life science and foundation partnerships rather than a public developer program, and no public API referen"
 x-type: company
 x-source: harvest:secondary-market
 specificationVersion: '0.23'
