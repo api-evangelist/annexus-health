@@ -57,6 +57,17 @@ modified: '2026-08-06'
 tags:
 - Company
 - Healthcare
+- Health Tech
+- Patient Access
+- Financial Assistance
+- Oncology
+- Revenue Cycle
+- Copay Assistance
+- Identity
+- HITRUST
+tags_raw:
+- Company
+- Healthcare
 - Health Technology
 - Patient Access
 - Financial Assistance
@@ -64,7 +75,6 @@ tags:
 - Revenue Cycle
 - Copay Assistance
 - Identity
-- OpenID Connect
 - HITRUST
 apis:
 - aid: annexus-health:assistpoint-identity
@@ -167,3 +177,5 @@ x-coverage:
   - url: https://www.annexushealth.com/developers
     status: 404
   checked: '2026-08-06'
+x-tags-removed:
+- OpenID Connect
