@@ -64,22 +64,105 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Annexus Health is a privately held healthcare technology company in Cranberry Township, Pennsylvania
-that builds software to reduce the administrative burden of patient financial navigation. Its
-flagship platform, **AssistPoint**, is an enterprise workflow application used by financial
-counselors and patient advocates to identify, enroll in, and manage copay assistance, charitable
-foundation grants, and manufacturer patient support programs. **AP Connect** creates a two-way secure
-information exchange between life science and foundation patient support programs and AssistPoint.
-**Adparo** is its patient financial navigation service offering.
+Annexus Health is a privately held healthcare technology company headquartered in Cranberry Township, Pennsylvania that builds software to reduce the administrative burden of patient financial navigation across the patient access journey. Its flagship platform, AssistPoint, is an enterprise workflow application used by financial counselors and patient advocates at provider organizations to proactively identify, enroll in, and manage copay assistance, charitable foundation grants, and manufacturer patient support programs. A companion integration layer, AP Connect, creates a two-way secure information exchange between life science and foundation patient support programs and AssistPoint, digitally integrating enrollment, e-signature, and real-time award balance updates. Annexus Health also publishes Adparo, a patient financial navigation service offering. The company reports AssistPoint is licensed by 165+ healthcare organizations across 4,200+ sites of care and has processed more than $6 billion in patient financial assistance awards since 2018. Its integration and developer surface is partner-only: AP Connect is delivered through direct life science and foundation partnerships rather than a public developer program, and no public API reference or machine-readable specification is published. The publicly reachable machine-readable surface is the AssistPoint identity tier — an OpenID Connect authorization server on the company's own custom domain — plus a SafeBase-hosted trust center carrying its HITRUST r2 certification.
 
-Annexus Health runs no public developer program. AP Connect is delivered through direct partnership
-and publishes no API reference or machine-readable specification. The publicly reachable
-machine-readable surface captured in this profile is the AssistPoint identity tier — an OpenID
-Connect authorization server on the company's own custom domain — plus a public SafeBase trust
-center naming its HITRUST r2 certification.
+**Areas:** Company · Healthcare · Health Tech · Patient Access · Financial Assistance · Oncology · Revenue Cycle · Copay Assistance · Identity · HITRUST
 
-- Website: https://www.annexushealth.com/
-- AssistPoint: https://www.annexushealth.com/assistpoint/
-- AP Connect: https://www.annexushealth.com/ap-connect/
-- Trust center: https://trust.annexushealth.com/
-- OIDC discovery: https://login.live.annexushealth.com/.well-known/openid-configuration
+## Annexus Health on APIs.io
+
+Everything profiled for Annexus Health is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/annexus-health/](https://apis.io/providers/annexus-health/)** — or go straight to one of the APIs or properties below.
+
+### APIs (1)
+
+- [AssistPoint Identity (OpenID Connect)](https://apis.io/apis/annexus-health/assistpoint-identity/) — The production OpenID Connect / OAuth 2.0 authorization server for the AssistPoint platform, served from Annexus Health's own custom domain. Its discovery…
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### MCP servers (1)
+
+Model Context Protocol servers that expose the API to agents.
+
+- [Moved to /providers/annexus-health/](https://apis.io/servers/annexus-health/annexus-health/)
+
+#### Security (3)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Annexus Health Authentication](https://apis.io/security/annexus-health/annexus-health-authentication/)
+- [Annexus Health Domain Security](https://apis.io/security/annexus-health/annexus-health-domain-security/)
+- [Annexus Health Trust Center](https://apis.io/security/annexus-health/annexus-health-trust-center/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Annexus Health Scopes](https://apis.io/scopes/annexus-health/annexus-health-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.annexushealth.com/)
+- [Documentation](https://www.annexushealth.com/assistpoint/)
+- [Sign up](https://www.annexushealth.com/contact/)
+- [Support](https://www.annexushealth.com/customer-support/)
+- [Blog](https://www.annexushealth.com/insights/)
+- [Trust centre](https://trust.annexushealth.com/)
+- [Privacy policy](https://www.annexushealth.com/privacy-policy/)
+
+## API Evangelist rating
+
+**Kin Score 25.9** — emerging · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 68.3 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 0.0 |
+| Developer ergonomics | 28.6 |
+| Access clarity | 39.5 |
+
+**Agent readiness 17.3** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | platform (partial credit) |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | na |
+
+**Regulatory alignment 33.6** — Health
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/annexus-health/](https://apis.io/providers/annexus-health/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Annexus Health: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/annexus-health/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
